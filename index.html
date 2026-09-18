@@ -1,1 +1,1214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Finds House — Achados que facilitam sua vida</title>
+
+<meta name="description" content="Finds House — uma seleção de produtos, ofertas e achados para facilitar suas escolhas.">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f3ef;
+    color: #292929;
+    line-height: 1.5;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #1f1f1f;
+    color: #ffffff;
+    padding: 22px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #c7a35a;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    background: #c7a35a;
+    color: #1f1f1f;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: linear-gradient(135deg, #1f1f1f 0%, #302f2d 55%, #c7a35a 100%);
+    color: #ffffff;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero h1 span {
+    color: #d6b66b;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    color: #eeeeee;
+}
+
+.hero-button {
+    display: inline-block;
+    background: #c7a35a;
+    color: #1f1f1f;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 13px 26px;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+
+.hero-button:hover {
+    background: #ffffff;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 60px 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 32px;
+    color: #252525;
+}
+
+.section-description {
+    text-align: center;
+    color: #777777;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.category-menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin: 40px auto;
+}
+
+.category-card {
+    background: #ffffff;
+    border: 1px solid #e3e0db;
+    border-radius: 10px;
+    padding: 25px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #292929;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+    border-color: #c7a35a;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.category-icon {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   PRODUTOS
+========================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.product-card {
+    background: #ffffff;
+    border: 1px solid #e5e2dc;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 10px;
+}
+
+.product-info {
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-name {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #282828;
+}
+
+.product-price {
+    font-size: 23px;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 14px;
+}
+
+.product-button {
+    display: block;
+    margin-top: auto;
+    text-align: center;
+    background: #c7a35a;
+    color: #1f1f1f;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 11px 12px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.product-button:hover {
+    background: #1f1f1f;
+    color: #ffffff;
+}
+
+/* =========================
+   AVISO
+========================= */
+
+.partner-note {
+    max-width: 850px;
+    margin: 60px auto 20px;
+    background: #ffffff;
+    border: 1px solid #e4e0d7;
+    border-left: 4px solid #c7a35a;
+    border-radius: 8px;
+    padding: 22px;
+    text-align: center;
+    color: #666666;
+    font-size: 14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+    background: #1f1f1f;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: #c7a35a;
+}
+
+footer p {
+    color: #bbbbbb;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1050px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .category-menu {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 750px) {
+    .header-inner {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 500px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">Finds <span>House</span></div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#moda">Moda</a>
+            <a href="#relogios">Relógios</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#casa">Casa</a>
+            <a href="#achados">Achados</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <h1>Finds <span>House</span></h1>
+
+        <p>
+            Achados que facilitam sua vida.
+            Produtos selecionados para você encontrar boas opções em um só lugar.
+        </p>
+
+        <a href="#categorias" class="hero-button">
+            EXPLORAR PRODUTOS
+        </a>
+    </div>
+</section>
+
+<!-- =========================
+     CATEGORIAS
+========================= -->
+
+<section class="section" id="categorias">
+    <div class="container">
+
+        <h2 class="section-title">Encontre o que procura</h2>
+
+        <p class="section-description">
+            Explore nossas categorias e descubra os produtos selecionados pela Finds House.
+        </p>
+
+        <div class="category-menu">
+
+            <a href="#moda" class="category-card">
+                <span class="category-icon">👕</span>
+                Moda
+            </a>
+
+            <a href="#relogios" class="category-card">
+                <span class="category-icon">⌚</span>
+                Relógios e Acessórios
+            </a>
+
+            <a href="#tecnologia" class="category-card">
+                <span class="category-icon">📱</span>
+                Tecnologia
+            </a>
+
+            <a href="#casa" class="category-card">
+                <span class="category-icon">🏠</span>
+                Casa e Decoração
+            </a>
+
+            <a href="#achados" class="category-card">
+                <span class="category-icon">✨</span>
+                Achados da Finds House
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     MODA — 14 PRODUTOS
+===================================================== -->
+
+<section class="section" id="moda">
+
+<div class="container">
+
+<h2 class="section-title">Moda</h2>
+
+<p class="section-description">
+    Roupas, calçados e acessórios selecionados.
+</p>
+
+<div class="product-grid">
+
+<!-- 1 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_884241-MLB110127689291_042026-V-camisa-polo-masculina-tecido-tech-confortavel-casual.webp"
+alt="Camisa Polo Masculina Tecido Tech Confortável Casual">
+
+<div class="product-info">
+<h3 class="product-name">Camisa Polo Masculina Tecido Tech Confortável Casual</h3>
+<div class="product-price">R$ 55,00</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-5663299774-camisa-polo-masculina-tecido-tech-confortavel-casual-_JM?searchVariation=199786292533&attributes=COLOR_SECONDARY_COLOR%3AQnJhbmNv" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 2 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_760983-MLB110931866342_052026-V.webp"
+alt="Kit 3 Regata Blusinha Feminina Suplex">
+
+<div class="product-info">
+<h3 class="product-name">Kit 3 Regata Blusinha Feminina Suplex Duplo Básica</h3>
+<div class="product-price">R$ 49,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/kit-3-regata-blusinha-feminina-suplex-duplo-basica-moda/up/MLBU3985830256?pdp_filters=item_id%3AMLB6801260454" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 3 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_606815-MLB85833487441_062025-V-jaqueta-feminina-courinho-com-ziper-gola-polo.webp"
+alt="Jaqueta Feminina Courinho">
+
+<div class="product-info">
+<h3 class="product-name">Jaqueta Feminina Courinho com Zíper Gola Polo</h3>
+<div class="product-price">R$ 39,97</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-5422583386-jaqueta-feminina-courinho-com-ziper-gola-polo-_JM?searchVariation=188305559585&attributes=COLOR_SECONDARY_COLOR%3AUHJldG8%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 4 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_626928-MLB82004918446_022025-V-kit-4-camiseta-dry-fit-sandrini-masculina-academia-caminhada.webp"
+alt="Kit 4 Camiseta Dry-fit Sandrini">
+
+<div class="product-info">
+<h3 class="product-name">Kit 4 Camiseta Dry-fit Sandrini Masculina</h3>
+<div class="product-price">R$ 59,99</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-4592320910-kit-4-camiseta-dry-fit-sandrini-masculina-academia-caminhada-_JM?searchVariation=186408020315&attributes=COLOR_SECONDARY_COLOR%3AU29ydGlkbw%3D%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 5 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_673926-MLB87504377037_072025-V-short-lupo-attack-para-esporte-fitness-compresso-original.webp"
+alt="Short Lupo Attack">
+
+<div class="product-info">
+<h3 class="product-name">Short Lupo Attack para Esporte Fitness Compressão</h3>
+<div class="product-price">R$ 79,80</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-4617058936-short-lupo-attack-para-esporte-fitness-compresso-original-_JM?searchVariation=180337190832&attributes=COLOR_SECONDARY_COLOR%3AUHJldG8%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 6 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_903255-MLB114019841904_072026-V.webp"
+alt="Calça Wide Leg Plus Size">
+
+<div class="product-info">
+<h3 class="product-name">Calça Wide Leg Plus Size Pantalona Alfaiataria</h3>
+<div class="product-price">R$ 99,78</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/calca-wide-leg-plus-size-pantalona-alfaiataria-elegante-l/up/MLBU3945180790?pdp_filters=item_id%3AMLB4652125695" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 7 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_785375-MLB89974186713_082025-V-chinelo-havaianas-elegance-print-feminino-adulto-original.webp"
+alt="Chinelo Havaianas Elegance Print">
+
+<div class="product-info">
+<h3 class="product-name">Chinelo Havaianas Elegance Print Feminino</h3>
+<div class="product-price">R$ 34,20</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-4160661655-chinelo-havaianas-elegance-print-feminino-adulto-original-_JM?searchVariation=189713085095&attributes=COLOR_SECONDARY_COLOR%3AUm9zZSBHb2xk" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 8 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_740612-MLB115904132054_092026-V-tnis-masculino-feminino-kappa-park-20-original.webp"
+alt="Tênis Kappa Park 2.0">
+
+<div class="product-info">
+<h3 class="product-name">Tênis Masculino Feminino Kappa Park 2.0 Original</h3>
+<div class="product-price">R$ 104,40</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-4049279695-tnis-masculino-feminino-kappa-park-20-original-_JM?searchVariation=206927487865&attributes=COLOR_SECONDARY_COLOR%3AQ2luemEgLSBMYXJhbmph" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 9 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_908386-MLB115949284768_092026-V.webp"
+alt="Kit 4 Cueca Lupo Boxer">
+
+<div class="product-info">
+<h3 class="product-name">Kit 4 Cueca Lupo Boxer Masculina Algodão</h3>
+<div class="product-price">R$ 74,73</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/kit-4-cueca-lupo-boxer-masculina-algodao-cotton-box-original/up/MLBU3973619257?pdp_filters=item_id%3AMLB6801996094" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 10 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_617361-MLB54128842596_032023-V-kit-6-pares-meias-puma-cano-medio-alto-atoalhada-original.webp"
+alt="Kit 6 Pares Meias Puma">
+
+<div class="product-info">
+<h3 class="product-name">Kit 6 Pares Meias Puma Cano Médio Alto</h3>
+<div class="product-price">R$ 64,38</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-3239976866-kit-6-pares-meias-puma-cano-medio-alto-atoalhada-original-_JM?searchVariation=176857755439&attributes=COLOR_SECONDARY_COLOR%3AMiBQcmV0YXMsIDIgQ2luemFzIGUgMiBCcmFuY2Fz" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 11 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_838755-MLB91813193542_092025-V-kit-2-jaquetas-corta-vento-impermeavel-liso-unissex.webp"
+alt="Kit 2 Jaquetas Corta Vento">
+
+<div class="product-info">
+<h3 class="product-name">Kit 2 Jaquetas Corta Vento Impermeável Unissex</h3>
+<div class="product-price">R$ 113,53</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-3982398179-kit-2-jaquetas-corta-vento-impermeavel-liso-unissex-_JM?searchVariation=182962591358&attributes=COLOR_SECONDARY_COLOR%3AQnJhbmNvLVByZXRv" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 12 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_649012-MLB114771724993_072026-V-short-saia-academia-feminino-cintura-alta-legging-fitness.webp"
+alt="Short Saia Academia Feminino">
+
+<div class="product-info">
+<h3 class="product-name">Short Saia Academia Feminino Cintura Alta</h3>
+<div class="product-price">R$ 28,99</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-4307047663-short-saia-academia-feminino-cintura-alta-legging-fitness-_JM?searchVariation=187111797658&attributes=COLOR_SECONDARY_COLOR%3AUHJldG8%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 13 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_807217-MLB108952647677_032026-V.webp"
+alt="Kit 3 Camisetas Oakley">
+
+<div class="product-info">
+<h3 class="product-name">Kit 3 Camisetas Oakley Masculino</h3>
+<div class="product-price">R$ 199,99</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/kit-3-camisetas-oakley-masculino-misselaneous-ellipse/up/MLBU3492042631?pdp_filters=item_id%3AMLB6201552148" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 14 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_819278-MLB114719964875_072026-V-jaqueta-feminina-puffer-bobojaco-nylon-impermeavel-capuz.webp"
+alt="Jaqueta Feminina Puffer">
+
+<div class="product-info">
+<h3 class="product-name">Jaqueta Feminina Puffer Bobojaco Nylon Impermeável</h3>
+<div class="product-price">R$ 56,90</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-3980482773-jaqueta-feminina-puffer-bobojaco-nylon-impermeavel-capuz-_JM?searchVariation=204986237505&attributes=COLOR_SECONDARY_COLOR%3AUHJldG8gR29sYSBTZW0gQ2FwdXo%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     RELÓGIOS — 5 PRODUTOS
+===================================================== -->
+
+<section class="section" id="relogios">
+
+<div class="container">
+
+<h2 class="section-title">Relógios e Acessórios</h2>
+
+<p class="section-description">
+    Relógios e acessórios selecionados.
+</p>
+
+<div class="product-grid">
+
+<!-- 15 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_880809-MLA100478384683_122025-V.webp"
+alt="Relógio Inteligente Smart Band Sports">
+
+<div class="product-info">
+<h3 class="product-name">Relógio Inteligente Smart Band Sports à Prova d'Água</h3>
+<div class="product-price">R$ 80,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/relogio-inteligente-smart-band-sports-e-prova-de-agua-caixa-preto/p/MLB62870615?pdp_filters=item_id%3AMLB5121735177" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 16 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_939679-MLA100384598381_122025-V.webp"
+alt="Relógio Masculino Orient Automático">
+
+<div class="product-info">
+<h3 class="product-name">Relógio Masculino Orient Automático 3 Estrelas</h3>
+<div class="product-price">R$ 1.156,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/relogio-masculino-orient-automatico-3-estrelas-exclusivo-yn6ss021d1sx/p/MLB62370029?pdp_filters=item_id%3AMLB5958166164" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 17 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_670400-MLA80803935494_112024-V.webp"
+alt="Relógio Omega Seamaster">
+
+<div class="product-info">
+<h3 class="product-name">Relógio Omega 300m Diver Seamaster Automático</h3>
+<div class="product-price">R$ 1.066,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/relogio-omega-300m-diver-seamaster-preto-automatico-correia-prateado/p/MLB44258068?pdp_filters=item_id%3AMLB6517926672" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 18 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_945745-MLB83081375100_032025-V-relogio-tissot-prc-200-eta-g10-suico-com-caixa-certificados.webp"
+alt="Relógio Tissot PRC 200">
+
+<div class="product-info">
+<h3 class="product-name">Relógio Tissot PRC 200 ETA G10 Suíço</h3>
+<div class="product-price">R$ 1.866,00</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-6258085260-relogio-tissot-prc-200-eta-g10-suico-com-caixa-certificados-_JM?searchVariation=190517145276&attributes=STRAP_COLOR%3ASW5veA%3D%3D%2CBEZEL_COLOR%3AQ2Vyw6JtaWNh%2CBACKGROUND_COLOR%3AQXp1bA%3D%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 19 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_864191-MLA100080680767_122025-V.webp"
+alt="Relógio Tissot T-Sport PRC 200">
+
+<div class="product-info">
+<h3 class="product-name">Relógio Tissot T-Sport PRC 200 Cronógrafo Masculino</h3>
+<div class="product-price">R$ 1.416,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/relogio-tissot-t-sport-prc-200-cronografo-masculino-com-pulseira-de-couro-marrom-e-fundo-branco/p/MLB18218015?pdp_filters=item_id%3AMLB4014716541" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     TECNOLOGIA — 2 PRODUTOS
+===================================================== -->
+
+<section class="section" id="tecnologia">
+
+<div class="container">
+
+<h2 class="section-title">Tecnologia</h2>
+
+<p class="section-description">
+    Tecnologia e eletrônicos selecionados.
+</p>
+
+<div class="product-grid">
+
+<!-- 20 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_798945-MLA112454329586_062026-V.webp"
+alt="Câmera de Segurança Wi-Fi">
+
+<div class="product-info">
+<h3 class="product-name">Câmera de Segurança Wi-Fi iCSee/Yoosee A28B 4K</h3>
+<div class="product-price">R$ 124,71</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/camera-de-seguranca-wi-fi-icseeyoosee-a28b-4k-dupla-lente-visao-noturna-colorida-full-hd-externa-prova-dagua-ip66-sensor-movimento-woosh/p/MLB60074213?pdp_filters=item_id%3AMLB6972453978" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 21 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_842494-MLA96419095420_102025-V.webp"
+alt="Apple iPhone 16">
+
+<div class="product-info">
+<h3 class="product-name">Apple iPhone 16 128 GB Ultramarine</h3>
+<div class="product-price">R$ 4.499,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/apple-iphone-16-128-gb-ultramarine-distribuidor-autorizado/p/MLB1040287800?pdp_filters=item_id%3AMLB5120559422" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     CASA E DECORAÇÃO — 14 PRODUTOS
+===================================================== -->
+
+<section class="section" id="casa">
+
+<div class="container">
+
+<h2 class="section-title">Casa e Decoração</h2>
+
+<p class="section-description">
+    Produtos para casa, cozinha, organização e praticidade.
+</p>
+
+<div class="product-grid">
+
+<!-- 22 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_604188-MLB92292397470_092025-V.webp"
+alt="Porta PVC Sanfonada">
+
+<div class="product-info">
+<h3 class="product-name">Porta PVC Sanfonada de Correr 210x72cm</h3>
+<div class="product-price">R$ 134,90</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/porta-pvc-sanfonada-de-correr-210cmx72cm-preta-para-banheiro/up/MLBU1742443773?pdp_filters=item_id%3AMLB3912747960" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 23 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_824959-MLA99446279174_112025-V.webp"
+alt="Escova Elétrica de Limpeza">
+
+<div class="product-info">
+<h3 class="product-name">Escova Elétrica de Limpeza DeckCasa JY-6010</h3>
+<div class="product-price">R$ 67,99</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/escova-eletrica-de-limpeza-deckcasa-jy-6010-3000mah-137-cm/p/MLB44212011?pdp_filters=item_id%3AMLB5204061574" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 24 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_899803-MLB114931356558_082026-V.webp"
+alt="Cafeteira Nescafé Dolce Gusto">
+
+<div class="product-info">
+<h3 class="product-name">Cafeteira Nescafé Dolce Gusto Genio S Basic</h3>
+<div class="product-price">R$ 459,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/cafeteira-nescafe-dolce-gusto-genio-s-basic/up/MLBU4755729093?pdp_filters=item_id%3AMLB7438358598" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 25 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_794989-MLA110352367379_042026-V.webp"
+alt="Mixer e Blender Philco">
+
+<div class="product-info">
+<h3 class="product-name">Mixer e Blender Philco 400W PMX40A</h3>
+<div class="product-price">R$ 129,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/mixer-e-blender-philco-1-velocidade-turbo-400w-pmx40a-preto/p/MLB63184457?pdp_filters=item_id%3AMLB7523856820" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 26 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_810904-MLA93779476451_092025-V.webp"
+alt="Mop Esfregão Giratório Condor">
+
+<div class="product-info">
+<h3 class="product-name">Mop Esfregão Giratório Condor com Balde Inox</h3>
+<div class="product-price">R$ 99,90</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/mop-esfregao-giratorio-condor-balde-inox-13-litros-refil-microfibra-cabo-longo-14-metros/p/MLB47285674?pdp_filters=item_id%3AMLB5919534142" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 27 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_789654-MLB81802423348_012025-V.webp"
+alt="Mesa de Cabeceira Amsterdã">
+
+<div class="product-info">
+<h3 class="product-name">Mesa de Cabeceira Criado Nicho Amsterdã</h3>
+<div class="product-price">R$ 55,77</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/mesa-de-cabeceira-criado-nicho-mesinha-quarto-amsterda-mudo/up/MLBU1119853820?pdp_filters=item_id%3AMLB6259400852" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 28 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_770216-MLB116141103421_082026-V.webp"
+alt="Cortador de Grama Elétrico">
+
+<div class="product-info">
+<h3 class="product-name">Cortador de Grama Elétrico com 2 Baterias 48V</h3>
+<div class="product-price">R$ 143,46</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/cortador-de-grama-eletrico-rodas-2-bateria-48v-rocadeira/up/MLBU3926679442?pdp_filters=item_id%3AMLB6666428292" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 29 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_753073-MLA110946060098_052026-V.webp"
+alt="Kit 2 Refletor Super LED">
+
+<div class="product-info">
+<h3 class="product-name">Kit 2 Refletor Super LED 400W IP67</h3>
+<div class="product-price">R$ 47,23</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/kit-2-refletor-super-led-400w-ip67-holofote-bivolt-prova-dagua-branco-frio-6500k-preto/p/MLB57490176?pdp_filters=item_id%3AMLB4880929159" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 30 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_813389-MLA99520090726_112025-V.webp"
+alt="Air Fryer Elgin">
+
+<div class="product-info">
+<h3 class="product-name">Fritadeira Elétrica Air Fryer Quad Fry 4,2L Elgin</h3>
+<div class="product-price">R$ 159,90</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/fritadeira-eletrica-air-fryer-quad-fry-42-l1400w-preto-elgin/p/MLB52868715?pdp_filters=item_id%3AMLB4150270587" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 31 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_820519-MLA99529786356_122025-V.webp"
+alt="Lava-Louças Brastemp">
+
+<div class="product-info">
+<h3 class="product-name">Lava-Louças Brastemp 8 Serviços Inox BLF08BS</h3>
+<div class="product-price">R$ 1.859,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/lava-loucas-brastemp-8-servicos-inox-blf08bs/p/MLB19628776?pdp_filters=item_id%3AMLB6471654480" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 32 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_900432-MLA113518359539_062026-V.webp"
+alt="Kit 10 Potes de Vidro">
+
+<div class="product-info">
+<h3 class="product-name">Kit 10 Potes de Vidro Hermético 640ml</h3>
+<div class="product-price">R$ 104,90</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/kit-10-pote-de-vidro-marmita-hermetico-640ml-freezer-fitness-rishon/p/MLB63904966?pdp_filters=item_id%3AMLB7480686754" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 33 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_825491-MLA99480103428_112025-V.webp"
+alt="Banqueta Dobrável Vonder">
+
+<div class="product-info">
+<h3 class="product-name">Banqueta Dobrável 45cm Vonder</h3>
+<div class="product-price">R$ 66,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/banqueta-dobravel-45cm-vonder-3540045000-indicada-para-camping-pesca-cozinha-cor-preta/p/MLB23998443?pdp_filters=item_id%3AMLB4088208359" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 34 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_639258-MLB82839590542_032025-V-capa-protetora-colcho-box-casal-padro-matelado-impermeavel.webp"
+alt="Capa Protetora Colchão Box">
+
+<div class="product-info">
+<h3 class="product-name">Capa Protetora Colchão Box Casal Impermeável</h3>
+<div class="product-price">R$ 27,54</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-4002919471-capa-protetora-colcho-box-casal-padro-matelado-impermeavel-_JM?searchVariation=183132347986&attributes=COLOR_SECONDARY_COLOR%3AQ2luemE%3D%2CMATTRESS_SIZE%3AQ2FzYWw%3D" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 35 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_852738-MLA99700511468_122025-V.webp"
+alt="Espremedor Premium Mondial">
+
+<div class="product-info">
+<h3 class="product-name">Espremedor Premium Mondial 30W E-02</h3>
+<div class="product-price">R$ 75,92</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/espremedor-premium-mondial-30w-e-02/p/MLB19307438?pdp_filters=item_id%3AMLB5408822070" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     ACHADOS DA FINDS HOUSE — 13 PRODUTOS
+===================================================== -->
+
+<section class="section" id="achados">
+
+<div class="container">
+
+<h2 class="section-title">Achados da Finds House</h2>
+
+<p class="section-description">
+    Produtos variados que encontramos e selecionamos para você.
+</p>
+
+<div class="product-grid">
+
+<!-- 36 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_639164-MLA99991020071_112025-V.webp"
+alt="Bicicleta de Equilíbrio Buba">
+
+<div class="product-info">
+<h3 class="product-name">Bicicleta de Equilíbrio Buba Verde 4 Rodas</h3>
+<div class="product-price">R$ 178,11</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/bicicleta-de-equilibrio-buba-verde-4-rodas/p/MLB39369748?pdp_filters=item_id%3AMLB5347220524" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 37 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_896529-MLA99991829051_112025-V.webp"
+alt="Torquímetro The Black Tools">
+
+<div class="product-info">
+<h3 class="product-name">Torquímetro de Estalo Click 1/2 Pol 28-210 Nm</h3>
+<div class="product-price">R$ 156,46</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/torquimetro-de-estalo-click-para-soquete-12-pol-28-210-nm-28-a-21kg-reversivel-ajustavel-com-estojo-the-black-tools/p/MLB53190169?pdp_filters=item_id%3AMLB4264896629" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 38 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_914712-MLA115718757357_082026-V.webp"
+alt="Massageador Corporal Elétrico">
+
+<div class="product-info">
+<h3 class="product-name">Massageador Corporal Elétrico Profissional USB</h3>
+<div class="product-price">R$ 49,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/massageador-corporal-eletrico-profissional-blue-app-usb-cor-rosa-popzzi-kids/p/MLB76467321?pdp_filters=item_id%3AMLB7350501668" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 39 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_914507-MLB116169457400_092026-V.webp"
+alt="Mini Astronauta Projetor">
+
+<div class="product-info">
+<h3 class="product-name">Mini Astronauta Projetor Estrelas Galáxia</h3>
+<div class="product-price">R$ 38,40</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/mini-astronauta-projetor-estrelas-galaxia-luminaria-noturna/up/MLBU3473969785?pdp_filters=item_id%3AMLB5778744278" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 40 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_693501-MLA112860816096_072026-V.webp"
+alt="Kit 2 Toucas de Cetim">
+
+<div class="product-info">
+<h3 class="product-name">Kit 2 Toucas de Cetim com Faixa Anti-Frizz</h3>
+<div class="product-price">R$ 19,00</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/kit-2-touca-de-cetim-com-faixa-anti-frizz-hidratacao-luxo-lf-rosapreto-cetim-simples/p/MLB74934535?pdp_filters=item_id%3AMLB7096706716" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 41 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_840594-MLA99966063943_112025-V.webp"
+alt="Fone Bluetooth TWS Dapon">
+
+<div class="product-info">
+<h3 class="product-name">Fone de Ouvido Bluetooth TWS Dapon F25</h3>
+<div class="product-price">R$ 68,90</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/fone-de-ouvido-bluetooth-tws-dapon-f25-touch-sem-fio-com-microfone-cor-preto/p/MLB25757804?pdp_filters=item_id%3AMLB4589827433" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 42 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_629064-MLA114933297788_082026-V.webp"
+alt="Parafusadeira e Furadeira The Black Tools">
+
+<div class="product-info">
+<h3 class="product-name">Parafusadeira e Furadeira de Impacto The Black Tools</h3>
+<div class="product-price">R$ 148,20</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/parafusadeira-e-furadeira-impacto-the-black-tools-tb-21pw-38-cor-amarelo-frequencia-5060-hz/p/MLB38053317?pdp_filters=item_id%3AMLB3771505959" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 43 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_903017-MLA111914906979_052026-V.webp"
+alt="Compressor Portátil para Carro">
+
+<div class="product-info">
+<h3 class="product-name">Compressor Portátil Digital para Carro, Moto e Bike</h3>
+<div class="product-price">R$ 61,71</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/compressor-portatil-car-air-pump-digital-com-visor-para-carro-moto-bike-calibrador-de-pneu-multifuncional/p/MLB57468821?pdp_filters=item_id%3AMLB4690712449" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 44 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_699211-MLA111040556121_042026-V.webp"
+alt="Principia Sérum Facial Retinol">
+
+<div class="product-info">
+<h3 class="product-name">Principia Sérum Facial Retinol 30ml</h3>
+<div class="product-price">R$ 38,43</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/principia-serum-facial-retinol-30ml-todo-tipo-de-pele-noite/p/MLB19132085?pdp_filters=item_id%3AMLB7266082272" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 45 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_683166-MLA103936334574_012026-V.webp"
+alt="L'Oréal Elseve Collagen Lifter">
+
+<div class="product-info">
+<h3 class="product-name">L'Oréal Paris Elseve Collagen Lifter Leave-in</h3>
+<div class="product-price">R$ 33,90</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/loreal-paris-elseve-collagen-lifter-leave-in-serum-capilar-para-cabelos-finos-injecao-de-massa-com-peptideos-de-colageno-aumenta-o-volume-em-61-e-encorpa-os-fios-por-72h-100ml/p/MLB64174316?pdp_filters=item_id%3AMLB4701793653" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 46 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_957684-MLB91915203250_092025-V.webp"
+alt="Secador Philco 2200W">
+
+<div class="product-info">
+<h3 class="product-name">Secador com Difusor Cachos Philco 2200W</h3>
+<div class="product-price">R$ 195,24</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/secador-com-difusor-cachos-philco-super-potente-2200w-oferta/up/MLBU3034401303?pdp_filters=item_id%3AMLB3986748081" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 47 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_870580-MLA115067778901_072026-V-telha-pvc-plan-precon-242x088m-terracota.webp"
+alt="Telha PVC Precon">
+
+<div class="product-info">
+<h3 class="product-name">Telha PVC Plan Precon 2,42 x 0,88m Terracota</h3>
+<div class="product-price">R$ 21,90</div>
+<a class="product-button" href="https://produto.mercadolivre.com.br/MLB-7626279638-telha-pvc-plan-precon-242x088m-terracota-_JM?searchVariation=199198825756&attributes=COLOR_SECONDARY_COLOR%3AVGVycmFjb3Rh" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+<!-- 48 -->
+<article class="product-card">
+<img class="product-image"
+src="https://http2.mlstatic.com/D_Q_NP_2X_924347-MLA96140339275_102025-V.webp"
+alt="Whey Protein Ultra FTW">
+
+<div class="product-info">
+<h3 class="product-name">Whey Protein Ultra Pote 900g Sabor Baunilha FTW</h3>
+<div class="product-price">R$ 80,75</div>
+<a class="product-button" href="https://www.mercadolivre.com.br/whey-protein-ultra-pote-900g-sabor-baunilha-ftw/p/MLB19753420?pdp_filters=item_id%3AMLB4105322933" target="_blank" rel="noopener">COMPRAR</a>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =========================
+     AVISO
+========================= -->
+
+<div class="container">
+
+<div class="partner-note">
+    A Finds House apresenta uma seleção de produtos disponíveis no Mercado Livre.
+    Ao clicar em <strong>COMPRAR</strong>, você será direcionado para a página
+    do produto no Mercado Livre para consultar detalhes, condições e realizar
+    sua compra diretamente na plataforma.
+</div>
+
+</div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-logo">
+    Finds <span>House</span>
+</div>
+
+<p>Achados que facilitam sua vida.</p>
+
+<p>© 2026 Finds House. Todos os direitos reservados.</p>
+
+</footer>
+
+</body>
+</html>
