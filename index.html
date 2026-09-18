@@ -50,15 +50,15 @@ header {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.logo img {
-    width: 110px;
-    height: auto;
-    display: block;
+.logo span {
+    color: #c7a35a;
 }
+
 nav {
     display: flex;
     flex-wrap: wrap;
@@ -327,10 +327,6 @@ footer p {
         flex-direction: column;
     }
 
-    .logo img {
-        width: 100px;
-    }
-
     nav {
         width: 100%;
     }
@@ -372,9 +368,7 @@ footer p {
 
 <header>
     <div class="header-inner">
-        <div class="logo">
-    <img src="logo" alt="Finds House">
-</div>
+        <div class="logo">Finds <span>House</span></div>
 
         <nav>
             <a href="#inicio">Início</a>
